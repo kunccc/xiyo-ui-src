@@ -1,5 +1,5 @@
 {
-  "name": "xiyo-ui-react",
+  "name": "xiyo-ui",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -19,9 +19,10 @@
   "homepage": "https://github.com/kunccc/xiyoUi-src#readme",
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
+    "html-webpack-plugin": "^3.2.0",
     "typescript": "^4.3.5",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.2.1"
   }
 }
