@@ -7633,7 +7633,7 @@ ts-jest@^24.0.0:
     semver "^5.5"
     yargs-parser "10.x"
 
-tslib@^2.2.0:
+tslib@^2.2.0, tslib@^2.3.0:
   version "2.3.0"
   resolved "https://registry.nlark.com/tslib/download/tslib-2.3.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
   integrity sha1-gDuM2rPhK6WBpMpByIObuw2ssJ4=

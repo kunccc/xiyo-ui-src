@@ -2,14 +2,15 @@ import React from 'react';
 import './importIcons';
 import './icon.scss';
 
-interface Props {
-  name: string;
-}
+type Props = {
+  name: string
+} & React.SVGAttributes<SVGElement>
 
-const Icon: React.FC<Props> = props => {
+const Icon = (props: Props) => {
+  const {name, children, className, ...rest} = props;
   return (
-    <svg className="xiyo-icon">
-      <use xlinkHref={`#${props.name}`}/>
+    <svg className={`xiyo-icon ${className ? className : ''}`} {...rest}>
+      <use xlinkHref={'#' + props.name}/>
     </svg>
   );
 };
