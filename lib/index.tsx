@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Icon from './Icon';
 
-console.log(React);
-console.log(ReactDOM);
+ReactDOM.render(<Icon name='wechat'/>, document.body);
