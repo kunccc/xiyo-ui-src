@@ -4,7 +4,7 @@ import Icon from './Icon';
 
 ReactDOM.render(
   <>
-    <Icon name="wechat"/>
+    <Icon name="wechat" className="aaa bbb ccc" onClick={() => {console.log('hi');}}/>
     <Icon name="qq"/>
   </>
   , document.querySelector('#root'));
