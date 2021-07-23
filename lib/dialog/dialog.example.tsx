@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import Dialog from './Dialog';
+import Button from '../button/Button';
 
 const DialogExample: React.FC = () => {
   const [visible, setVisible] = useState(false);
   return (
     <div>
-      <button onClick={() => setVisible(x => !x)}>toggle</button>
+      <Button onClick={() => setVisible(x => !x)}>toggle</Button>
       <Dialog visible={visible}>dialog</Dialog>
     </div>
   );

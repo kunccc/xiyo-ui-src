@@ -1,6 +1,7 @@
 import React from 'react';
-import './dialog.scss';
 import Icon from '../icon/Icon';
+import Button from '../button/Button';
+import './dialog.scss';
 
 interface Props {
   visible: boolean;
@@ -16,8 +17,8 @@ const Dialog: React.FC<Props> = props => {
           <header>标题</header>
           <main>{props.children}</main>
           <footer>
-            <button>ok</button>
-            <button>cancel</button>
+            <Button>ok</Button>
+            <Button>cancel</Button>
           </footer>
         </div>
       </>
