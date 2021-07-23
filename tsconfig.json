@@ -24,6 +24,8 @@
     // "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
     "paths": {
       "tslib": [
         "node_modules/tslib/tslib.d.ts"

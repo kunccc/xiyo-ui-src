@@ -1,7 +1,7 @@
 import React from 'react';
-import './importIcons';
+import '../helper/importIcons';
 import './icon.scss';
-import classes from './classes';
+import classes from '../helper/classes';
 
 type Props = {
   name: string
