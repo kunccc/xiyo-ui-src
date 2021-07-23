@@ -1,7 +1,6 @@
 import React from 'react';
 import '../helper/importIcons';
 import './icon.scss';
-import classes from '../helper/classes';
 
 type Props = {
   name: string
@@ -9,7 +8,7 @@ type Props = {
 
 const Icon: React.FC<Props> = ({name, children, className, ...rest}) => {
   return (
-    <svg className={classes('xiyo-icon', className)} {...rest}>
+    <svg className={`xiyo-icon ${className ? className : ''}`.trim()} {...rest}>
       <use xlinkHref={'#' + name}/>
     </svg>
   );

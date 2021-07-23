@@ -1,0 +1,101 @@
+.xiyo-button {
+  height: 30px;
+  padding: 0 12px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 1px 0 fade-out(black, 0.95);
+  transition: all .25s;
+  &:hover {
+    color: #ff8f78;
+    border-color: lighten(#ff8f78, 3);
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+  &::-moz-focus-inner {
+    border: 0;
+  }
+  &-theme {
+    &-button {
+      &.xiyo-button-level-main {
+        background: #ff8f78;
+        color: white;
+        border: 1px solid transparent;
+        &:hover {
+          background: lighten(#ff8f78, 10%);
+        }
+      }
+      &[disabled] {
+        cursor: not-allowed;
+        color: grey;
+        &:hover {
+          border-color: #aaa;
+        }
+      }
+    }
+    &-link {
+      border-color: transparent;
+      box-shadow: none;
+      color: #ff8f78;
+      &:hover, &:focus {
+        color: lighten(#ff8f78, 10%);
+        border-color: transparent;
+      }
+      &[disabled] {
+        cursor: not-allowed;
+        color: grey;
+      }
+    }
+    &-text {
+      border-color: transparent;
+      box-shadow: none;
+      color: inherit;
+      &:hover, &:focus {
+        color: #ff8f78;
+        border-color: transparent;
+      }
+      &[disabled] {
+        cursor: not-allowed;
+        color: grey;
+      }
+    }
+  }
+  &-size {
+    &-small {
+      font-size: 12px;
+      height: 22px;
+      padding: 0 6px;
+    }
+    &-big {
+      font-size: 24px;
+      height: 46px;
+      padding: 0 18px
+    }
+  }
+  &-loadingIndicator {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 6px;
+    border-radius: 8px;
+    border-color: #ff8f78 #ff8f78 #ff8f78 transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: xiyo-button-spin 1s infinite linear;
+  }
+  @keyframes xiyo-button-spin {
+    0% {
+      transform: rotate(0deg)
+    }
+    100% {
+      transform: rotate(360deg)
+    }
+  }
+}
