@@ -1,29 +1,30 @@
 import React from 'react';
-import Icon from '../icon/Icon';
+import ReactDOM from 'react-dom';
 import Button from '../button/Button';
 import './dialog.scss';
 
 interface Props {
   visible: boolean;
+  closeOnMask?: boolean;
+  onClose: React.MouseEventHandler;
 }
 
 const Dialog: React.FC<Props> = props => {
-  return (
-    props.visible ?
-      <>
-        <div className="xiyo-dialog-mask"/>
-        <div className="xiyo-dialog">
-          <div className="xiyo-dialog-close"><Icon name="close"/></div>
-          <header>标题</header>
-          <main>{props.children}</main>
-          <footer>
-            <Button>ok</Button>
-            <Button>cancel</Button>
-          </footer>
-        </div>
-      </>
-      : null
-  );
+  return (ReactDOM.createPortal(
+    <>
+      <div className={`xiyo-dialog-mask ${props.visible ? 'visible' : ''}`}
+           onClick={e => props.closeOnMask && props.onClose(e)}/>
+      <div className={`xiyo-dialog ${props.visible ? 'visible' : ''}`}>
+        <span className="xiyo-dialog-close" onClick={props.onClose}/>
+        <header>标题</header>
+        <main>{props.children}</main>
+        <footer>
+          <Button onClick={props.onClose}>取消</Button>
+          <Button level="main" onClick={props.onClose}>确定</Button>
+        </footer>
+      </div>
+    </>
+    , document.body));
 };
 
 export default Dialog;

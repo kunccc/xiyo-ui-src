@@ -6,8 +6,8 @@ const DialogExample: React.FC = () => {
   const [visible, setVisible] = useState(false);
   return (
     <div>
-      <Button onClick={() => setVisible(x => !x)}>toggle</Button>
-      <Dialog visible={visible}>dialog</Dialog>
+      <Button onClick={() => setVisible(v => !v)}>open</Button>
+      <Dialog visible={visible} onClose={() => setVisible(false)}>Hello World</Dialog>
     </div>
   );
 };

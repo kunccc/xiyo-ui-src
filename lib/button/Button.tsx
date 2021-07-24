@@ -1,7 +1,7 @@
 import React from 'react';
 import './button.scss';
 
-interface Props extends React.HTMLAttributes<HTMLElement> {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   level?: string;
   theme?: string;
   size?: string;
