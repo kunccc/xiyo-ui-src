@@ -1,26 +1,29 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {createPortal} from 'react-dom';
 import Button from '../button/Button';
 import './dialog.scss';
 
 interface Props {
   visible: boolean;
+  title?: string;
   closeOnMask?: boolean;
-  onClose: React.MouseEventHandler;
+  onClose: Function;
+  onCancel?: Function;
+  onConfirm?: Function;
 }
 
-const Dialog: React.FC<Props> = props => {
-  return (ReactDOM.createPortal(
+const Dialog: React.FC<Props> = ({onClose, visible, closeOnMask, title, children, onCancel, onConfirm}) => {
+  return (createPortal(
     <>
-      <div className={`xiyo-dialog-mask ${props.visible ? 'visible' : ''}`}
-           onClick={e => props.closeOnMask && props.onClose(e)}/>
-      <div className={`xiyo-dialog ${props.visible ? 'visible' : ''}`}>
-        <span className="xiyo-dialog-close" onClick={props.onClose}/>
-        <header>标题</header>
-        <main>{props.children}</main>
+      <div className={`xiyo-dialog-mask ${visible ? 'visible' : ''}`}
+           onClick={() => closeOnMask && onClose()}/>
+      <div className={`xiyo-dialog ${visible ? 'visible' : ''}`}>
+        <span className="xiyo-dialog-close" onClick={() => onClose()}/>
+        <header>{title}</header>
+        <main>{children}</main>
         <footer>
-          <Button onClick={props.onClose}>取消</Button>
-          <Button level="main" onClick={props.onClose}>确定</Button>
+          <Button onClick={() => onCancel && onCancel() || onClose()}>取消</Button>
+          <Button onClick={() => onConfirm && onConfirm() || onClose()} level="main">确定</Button>
         </footer>
       </div>
     </>

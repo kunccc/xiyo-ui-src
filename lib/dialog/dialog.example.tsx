@@ -7,7 +7,7 @@ const DialogExample: React.FC = () => {
   return (
     <div>
       <Button onClick={() => setVisible(v => !v)}>open</Button>
-      <Dialog visible={visible} onClose={() => setVisible(false)}>Hello World</Dialog>
+      <Dialog visible={visible} onClose={() => setVisible(false)} title="标题">hello</Dialog>
     </div>
   );
 };
