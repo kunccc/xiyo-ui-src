@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, ReactNode, ReactFragment} from 'react';
 import ReactDOM from 'react-dom';
 import Button from '../button/Button';
 import './dialog.scss';
@@ -103,6 +103,37 @@ const confirm = (content: string, success: Function, fail: Function) => {
   ReactDOM.render(component, container);
 };
 
-export {alert, confirm};
+interface modalProps {
+  unmount: Function;
+}
+
+const ModalDialog: React.FC<modalProps> = ({children, unmount}) => {
+  const [visible, setVisible] = useState(false);
+  const close = () => {
+    setVisible(false);
+    setTimeout(() => unmount(), 300);
+  };
+  useEffect(() => setVisible(true), []);
+  return (
+    <>
+      <div className={`xiyo-dialog-mask ${visible ? 'visible' : ''}`}/>
+      <div className={`xiyo-dialog ${visible ? 'visible' : ''}`}>
+        <span className="xiyo-dialog-close" onClick={close}/>
+        <header>提示</header>
+        <main>{children}</main>
+      </div>
+    </>
+  );
+};
+
+const modal = (content: ReactNode | ReactFragment) => {
+  const unmount = () => ReactDOM.unmountComponentAtNode(container) && container.remove();
+  const component = <ModalDialog unmount={unmount}>{content}</ModalDialog>;
+  const container = document.createElement('div');
+  document.body.appendChild(container);
+  ReactDOM.render(component, container);
+};
+
+export {alert, confirm, modal};
 
 export default Dialog;
