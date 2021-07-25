@@ -1,5 +1,5 @@
-import React from 'react';
-import {createPortal} from 'react-dom';
+import React, {useState, useEffect} from 'react';
+import ReactDOM from 'react-dom';
 import Button from '../button/Button';
 import './dialog.scss';
 
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Dialog: React.FC<Props> = ({onClose, visible, closeOnMask, title, type, children, onCancel, onConfirm}) => {
-  return (createPortal(
+  return (ReactDOM.createPortal(
     <>
       <div className={`xiyo-dialog-mask ${visible ? 'visible' : ''}`}
            onClick={() => closeOnMask && onClose()}/>
@@ -31,5 +31,41 @@ const Dialog: React.FC<Props> = ({onClose, visible, closeOnMask, title, type, ch
     </>
     , document.body));
 };
+
+interface alertProps {
+  unmount: Function
+}
+
+const AlertDialog: React.FC<alertProps> = ({children, unmount}) => {
+  const [visible, setVisible] = useState(false);
+  const close = () => {
+    setVisible(false);
+    setTimeout(() => unmount(), 300);
+  };
+  useEffect(() => setVisible(true), []);
+  return (
+    <>
+      <div className={`xiyo-dialog-mask ${visible ? 'visible' : ''}`}/>
+      <div className={`xiyo-dialog ${visible ? 'visible' : ''}`}>
+        <span className="xiyo-dialog-close" onClick={close}/>
+        <header>提示</header>
+        <main>{children}</main>
+        <footer>
+          <Button onClick={close} level="main">确定</Button>
+        </footer>
+      </div>
+    </>
+  );
+};
+
+const alert = (content: string) => {
+  const unmount = () => ReactDOM.unmountComponentAtNode(container) && container.remove();
+  const component = <AlertDialog unmount={unmount}>{content}</AlertDialog>;
+  const container = document.createElement('div');
+  document.body.appendChild(container);
+  ReactDOM.render(component, container);
+};
+
+export {alert};
 
 export default Dialog;

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Dialog from './Dialog';
+import Dialog, {alert} from './Dialog';
 import Button from '../button/Button';
 
 const DialogExample: React.FC = () => {
@@ -8,6 +8,7 @@ const DialogExample: React.FC = () => {
     <div>
       <Button onClick={() => setVisible(v => !v)}>open</Button>
       <Dialog visible={visible} onClose={() => setVisible(false)} title="标题" type="confirm">hello</Dialog>
+      <Button onClick={() => alert('你是猪吗')}>alert</Button>
     </div>
   );
 };
