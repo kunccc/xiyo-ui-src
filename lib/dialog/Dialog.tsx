@@ -66,6 +66,43 @@ const alert = (content: string) => {
   ReactDOM.render(component, container);
 };
 
-export {alert};
+interface confirmProps {
+  unmount: Function;
+  success: Function;
+  fail: Function;
+}
+
+const ConfirmDialog: React.FC<confirmProps> = ({children, unmount, success, fail}) => {
+  const [visible, setVisible] = useState(false);
+  const close = () => {
+    setVisible(false);
+    setTimeout(() => unmount(), 300);
+  };
+  useEffect(() => setVisible(true), []);
+  return (
+    <>
+      <div className={`xiyo-dialog-mask ${visible ? 'visible' : ''}`}/>
+      <div className={`xiyo-dialog ${visible ? 'visible' : ''}`}>
+        <span className="xiyo-dialog-close" onClick={close}/>
+        <header>提示</header>
+        <main>{children}</main>
+        <footer>
+          <Button onClick={() => fail() || close()}>取消</Button>
+          <Button onClick={() => success() || close()} level="main">确定</Button>
+        </footer>
+      </div>
+    </>
+  );
+};
+
+const confirm = (content: string, success: Function, fail: Function) => {
+  const unmount = () => ReactDOM.unmountComponentAtNode(container) && container.remove();
+  const component = <ConfirmDialog unmount={unmount} success={success} fail={fail}>{content}</ConfirmDialog>;
+  const container = document.createElement('div');
+  document.body.appendChild(container);
+  ReactDOM.render(component, container);
+};
+
+export {alert, confirm};
 
 export default Dialog;
