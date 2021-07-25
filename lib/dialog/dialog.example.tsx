@@ -10,7 +10,7 @@ const DialogExample: React.FC = () => {
       <Dialog visible={visible} onClose={() => setVisible(false)} title="标题" type="confirm">hello</Dialog>
       <Button onClick={() => alert('你是猪吗')}>alert</Button>
       <Button onClick={() => confirm('你是猪吗', () => console.log('对！'), () => console.log('no'))}>confirm</Button>
-      <Button onClick={() => modal(<h1>你好</h1>)}>modal</Button>
+      <Button onClick={() => modal('标题', <h1>你好</h1>)}>modal</Button>
     </div>
   );
 };
