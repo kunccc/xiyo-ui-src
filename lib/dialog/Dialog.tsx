@@ -1,9 +1,9 @@
 import React, {ReactNode, ReactElement} from 'react';
 import ReactDOM from 'react-dom';
 import Button from '../button/Button';
-import Alert from './dialogs/Alert';
-import Confirm from './dialogs/Confirm';
-import Modal from './dialogs/Modal';
+import Alert from './components/Alert';
+import Confirm from './components/Confirm';
+import Modal from './components/Modal';
 import './dialog.scss';
 
 interface Props {
