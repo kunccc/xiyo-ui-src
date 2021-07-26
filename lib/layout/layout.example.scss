@@ -1,0 +1,21 @@
+.layout {
+  width: 400px;
+  height: 200px;
+}
+.header, .footer, .main, .aside {
+  color: #fff;
+  margin: 2px;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header, .footer {
+  background: lighten(#ff8f78, 10%);
+}
+.main {
+  background: #ff8f78;
+}
+.aside {
+  background: lighten(#ff8f78, 5%);
+}

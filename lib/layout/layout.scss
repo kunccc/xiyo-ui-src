@@ -1,14 +1,11 @@
 .xiyo-layout {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
-  height: 100px;
   &-has-aside {
     flex-direction: row;
   }
   &-main {
     flex-grow: 1;
-    border: 1px solid green;
   }
   & & {
     flex-grow: 1;
