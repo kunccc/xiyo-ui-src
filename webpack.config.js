@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   entry: {
-    index: './lib/index.tsx'
+    index: './index.tsx'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
