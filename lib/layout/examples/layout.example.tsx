@@ -1,21 +1,19 @@
 import React from 'react';
-import Layout from './Layout';
-import Header from './components/Header';
-import Main from './components/Main';
-import Aside from './components/Aside';
-import Footer from './components/Footer';
+import Layout from '../Layout';
+import Header from '../components/Header';
+import Main from '../components/Main';
+import Aside from '../components/Aside';
+import Footer from '../components/Footer';
 import './layout.example.scss';
 
 const LayoutExample: React.FC = () => {
   return (
-    <>
-      <h2>示例1</h2>
+    <div>
       <Layout className="layout">
         <Header className="header">header</Header>
         <Main className="main">main</Main>
         <Footer className="footer">footer</Footer>
       </Layout>
-      <h2>示例2</h2>
       <Layout className="layout">
         <Header className="header">header</Header>
         <Layout>
@@ -24,7 +22,6 @@ const LayoutExample: React.FC = () => {
         </Layout>
         <Footer className="footer">footer</Footer>
       </Layout>
-      <h2>示例3</h2>
       <Layout className="layout">
         <Header className="header">header</Header>
         <Layout>
@@ -33,7 +30,6 @@ const LayoutExample: React.FC = () => {
         </Layout>
         <Footer className="footer">footer</Footer>
       </Layout>
-      <h2>示例4</h2>
       <Layout className="layout">
         <Aside className="aside">aside</Aside>
         <Layout>
@@ -42,7 +38,7 @@ const LayoutExample: React.FC = () => {
           <Footer className="footer">footer</Footer>
         </Layout>
       </Layout>
-    </>
+    </div>
   );
 };
 

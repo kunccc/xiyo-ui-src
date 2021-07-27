@@ -9,7 +9,7 @@ import './dialog.scss';
 interface Props {
   visible: boolean;
   title?: string;
-  type: 'confirm' | 'alert' | 'modal';
+  type?: 'confirm' | 'alert' | 'modal';
   closeOnMask?: boolean;
   onClose: Function;
   onCancel?: Function;
@@ -27,7 +27,7 @@ const Dialog: React.FC<Props> = ({onClose, visible, closeOnMask, title, type, ch
         <main>{children}</main>
         <footer>
           {type === 'confirm' && <Button onClick={() => onCancel && onCancel() || onClose()}>取消</Button>}
-          {(type === 'confirm' || type === 'alert') &&
+          {(type === 'confirm' || type === 'alert' || !type) &&
           <Button onClick={() => onConfirm && onConfirm() || onClose()} level="main">确定</Button>}
         </footer>
       </div>
