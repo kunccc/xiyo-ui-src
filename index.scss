@@ -150,43 +150,6 @@ a {
               transform: scale(.32) translateX(120px) rotate(-180deg);
             }
           }
-          @media (min-width: 501px) {
-            &:hover {
-              cursor: pointer;
-              .demo-content-action-button {
-                transform: translateX(0);
-                opacity: 1;
-                .xiyo-button-theme-link {
-                  color: #ff8f78;
-                  background: transparent;
-                }
-              }
-              .xiyo-icon {
-                transform: scale(.32) translateX(6px);
-                &.codeVisible {
-                  transform: scale(.32) translateX(6px) rotate(-180deg);
-                }
-              }
-            }
-          }
-        }
-        @media (max-width: 500px) {
-          .demo-content-action {
-            background: #fff;
-            &:hover {
-              background: #fff;
-              .xiyo-button-theme-link {
-                background: #fff;
-              }
-            }
-            .xiyo-button-theme-link {
-              background: #fff;
-            }
-            &-button {
-              transform: translateX(0);
-              opacity: 1;
-            }
-          }
         }
         &-code {
           transition: all .4s;
@@ -210,6 +173,25 @@ a {
 @media (min-width: 1200px) {
   .site {
     margin: 0 200px;
+  }
+}
+@media (min-width: 501px) {
+  .demo-content-action:hover {
+    cursor: pointer;
+    .demo-content-action-button {
+      transform: translateX(0);
+      opacity: 1;
+      .xiyo-button-theme-link {
+        color: #ff8f78;
+        background: transparent;
+      }
+    }
+    .xiyo-icon {
+      transform: scale(.32) translateX(6px);
+      &.codeVisible {
+        transform: scale(.32) translateX(6px) rotate(-180deg);
+      }
+    }
   }
 }
 @media (max-width: 500px) {
@@ -269,6 +251,20 @@ a {
         }
       }
       .demo-content-action {
+        background: #fff;
+        &:hover {
+          background: #fff;
+          .xiyo-button-theme-link {
+            background: #fff;
+          }
+        }
+        .xiyo-button-theme-link {
+          background: #fff;
+        }
+        &-button {
+          transform: translateX(0);
+          opacity: 1;
+        }
         .xiyo-icon {
           transform: scale(.32) translateX(32px);
           &.codeVisible {
