@@ -10,12 +10,16 @@ import ButtonExample6 from './examples/button.example6';
 const ButtonDemo: React.FC = () => {
   return (
     <>
-      <Demo code={require('!!raw-loader!./examples/button.example1').default}><ButtonExample1/></Demo>
-      <Demo code={require('!!raw-loader!./examples/button.example2').default}><ButtonExample2/></Demo>
-      <Demo code={require('!!raw-loader!./examples/button.example3').default}><ButtonExample3/></Demo>
-      <Demo code={require('!!raw-loader!./examples/button.example4').default}><ButtonExample4/></Demo>
-      <Demo code={require('!!raw-loader!./examples/button.example5').default}><ButtonExample5/></Demo>
-      <Demo code={require('!!raw-loader!./examples/button.example6').default}><ButtonExample6/></Demo>
+      <h2>Button 按钮</h2>
+      <p className="detail">用于开始一个即时操作</p>
+      <Demo code={require('!!raw-loader!./examples/button.example1').default} title="基本用法"><ButtonExample1/></Demo>
+      <Demo code={require('!!raw-loader!./examples/button.example2').default} title="不同级别"><ButtonExample2/></Demo>
+      <Demo code={require('!!raw-loader!./examples/button.example3').default} title="不同类型"><ButtonExample3/></Demo>
+      <Demo code={require('!!raw-loader!./examples/button.example4').default} title="不同尺寸"><ButtonExample4/></Demo>
+      <Demo code={require('!!raw-loader!./examples/button.example5').default}
+            title="支持 loading"><ButtonExample5/></Demo>
+      <Demo code={require('!!raw-loader!./examples/button.example6').default}
+            title="支持 disabled"><ButtonExample6/></Demo>
     </>
   );
 };

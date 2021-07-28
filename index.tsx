@@ -9,6 +9,9 @@ import Layout from './lib/layout/Layout';
 import Header from './lib/layout/components/Header';
 import Aside from './lib/layout/components/Aside';
 import Main from './lib/layout/components/Main';
+import Intro from './lib/doc/Intro';
+import Install from './lib/doc/Install';
+import Start from './lib/doc/Start';
 import './index.scss';
 
 ReactDOM.render(
@@ -20,6 +23,19 @@ ReactDOM.render(
       </Header>
       <Layout>
         <Aside className="site-aside">
+          <p className="site-aside-title">文档</p>
+          <ul>
+            <li>
+              <NavLink to="/intro">介绍</NavLink>
+            </li>
+            <li>
+              <NavLink to="/install">安装</NavLink>
+            </li>
+            <li>
+              <NavLink to="/start">开始使用</NavLink>
+            </li>
+          </ul>
+          <p className="site-aside-title">组件列表</p>
           <ul>
             <li>
               <NavLink to="/icon">Icon 图标</NavLink>
@@ -36,6 +52,9 @@ ReactDOM.render(
           </ul>
         </Aside>
         <Main className="site-main">
+          <Route path="/intro" component={Intro}/>
+          <Route path="/install" component={Install}/>
+          <Route path="/start" component={Start}/>
           <Route path="/icon" component={IconDemo}/>
           <Route path="/button" component={ButtonDemo}/>
           <Route path="/layout" component={LayoutDemo}/>

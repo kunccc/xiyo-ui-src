@@ -7,7 +7,7 @@ const DialogExample5: React.FC = () => {
     <div>
       <Button onClick={() => alert('Hello World')}>alert</Button>
       <Button onClick={() => confirm('你确定要删除吗？', () => console.log('yes'), () => console.log('no'))}>confirm</Button>
-      <Button onClick={() => modal('标题', <h1>Hello World</h1>)}>modal</Button>
+      <Button onClick={() => modal('标题', <h2>Hello World</h2>)}>modal</Button>
     </div>
   );
 };
