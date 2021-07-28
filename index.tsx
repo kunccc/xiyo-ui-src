@@ -13,6 +13,7 @@ import Intro from './lib/doc/Intro';
 import Install from './lib/doc/Install';
 import Start from './lib/doc/Start';
 import './index.scss';
+import 'github-markdown-css';
 
 ReactDOM.render(
   <Router>
