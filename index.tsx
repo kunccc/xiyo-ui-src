@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as  ReactDOM from 'react-dom';
-import {HashRouter as Router, Route, NavLink} from 'react-router-dom';
+import {HashRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom';
 import IconDemo from './lib/icon/icon.demo';
 import DialogDemo from './lib/dialog/dialog.demo';
 import ButtonDemo from './lib/button/button.demo';
@@ -53,13 +53,16 @@ ReactDOM.render(
           </ul>
         </Aside>
         <Main className="site-main">
-          <Route path="/intro" component={Intro}/>
-          <Route path="/install" component={Install}/>
-          <Route path="/start" component={Start}/>
-          <Route path="/icon" component={IconDemo}/>
-          <Route path="/button" component={ButtonDemo}/>
-          <Route path="/layout" component={LayoutDemo}/>
-          <Route path="/dialog" component={DialogDemo}/>
+          <Switch>
+            <Route path="/intro" component={Intro}/>
+            <Route path="/install" component={Install}/>
+            <Route path="/start" component={Start}/>
+            <Route path="/icon" component={IconDemo}/>
+            <Route path="/button" component={ButtonDemo}/>
+            <Route path="/layout" component={LayoutDemo}/>
+            <Route path="/dialog" component={DialogDemo}/>
+            <Redirect exact from="" to="/intro"/>
+          </Switch>
         </Main>
       </Layout>
     </Layout>
