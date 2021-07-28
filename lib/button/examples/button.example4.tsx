@@ -3,7 +3,7 @@ import Button from '../Button';
 
 const ButtonExample4: React.FC = () => {
   return (
-    <div>
+    <div className="button-example">
       <div>
         <Button size="big">大大</Button>
         <Button size="normal">中中</Button>

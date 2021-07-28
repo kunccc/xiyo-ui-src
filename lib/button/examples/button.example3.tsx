@@ -3,7 +3,7 @@ import Button from '../Button';
 
 const ButtonExample3: React.FC = () => {
   return (
-    <div>
+    <div className="button-example">
       <Button theme="button">按钮</Button>
       <Button theme="text">文本</Button>
       <Button theme="link">链接</Button>

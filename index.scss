@@ -23,6 +23,10 @@ a {
   &-header {
     padding: 16px 16px 12px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    .menu {
+      display: none;
+      transform: scale(.7);
+    }
     .logo {
       width: 24px;
       margin: 0 10px;
@@ -55,10 +59,59 @@ a {
   }
   &-main {
     padding: 32px;
+    width: 0;
     .detail {
       font-size: 14px;
       color: #666;
       margin-top: 10px;
+      &-more {
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+        a {
+          color: #0366d6;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .icon-example {
+      .xiyo-icon {
+        margin-right: 12px;
+      }
+    }
+    .button-example, .dialog-example {
+      .xiyo-button {
+        margin-right: 10px;
+      }
+    }
+    .layout-example {
+      .layout {
+        height: 200px;
+        margin-top: 24px;
+        &:first-child {
+          margin: 0;
+        }
+      }
+      .header, .footer, .main, .aside {
+        color: #fff;
+        margin: 2px;
+        padding: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .header, .footer {
+        background: lighten(#ff8f78, 10%);
+      }
+      .main {
+        background: #ff8f78;
+      }
+      .aside {
+        background: lighten(#ff8f78, 5%);
+      }
     }
     .demo {
       margin: 50px 0;
@@ -133,12 +186,6 @@ a {
               transform: translateX(0);
               opacity: 1;
             }
-            .xiyo-icon {
-              transform: scale(.32) translateX(0);
-              &.codeVisible {
-                transform: scale(.32) translateX(0) rotate(-180deg);
-              }
-            }
           }
         }
         &-code {
@@ -165,3 +212,71 @@ a {
     margin: 0 200px;
   }
 }
+@media (max-width: 500px) {
+  .site {
+    &.visible {
+      overflow: hidden;
+    }
+    &-header {
+      position: relative;
+      text-align: center;
+      .menu {
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 22px;
+        transition: all .4s ease;
+        color: #777;
+        &.visible {
+          color: #ff8f78;
+        }
+      }
+      .logo {
+        width: 24px;
+        margin: 0 10px;
+      }
+      .xiyo {
+        display: none;
+      }
+    }
+    &-aside {
+      transition: all .4s ease;
+      transform: translateX(-200px);
+      &.visible {
+        transform: translateX(0);
+      }
+    }
+    &-main {
+      min-width: 100%;
+      transition: all .4s ease;
+      transform: translateX(-200px);
+      position: relative;
+      &.visible {
+        transform: translateX(0);
+      }
+      .mask {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        transform: translate(-32px, -32px);
+        z-index: -1;
+        opacity: 0;
+        transition: all .4s ease;
+        &.visible {
+          z-index: 100;
+          opacity: 1;
+        }
+      }
+      .demo-content-action {
+        .xiyo-icon {
+          transform: scale(.32) translateX(32px);
+          &.codeVisible {
+            transform: scale(.32) translateX(32px) rotate(-180deg);
+          }
+        }
+      }
+    }
+  }
+}
+
