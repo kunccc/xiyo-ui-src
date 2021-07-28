@@ -131,15 +131,12 @@ a {
           transition: all .3s ease;
           &:hover {
             background: #fafafa;
-            .xiyo-button-theme-link {
-              background: #fafafa;
-            }
           }
           &-button {
             transition: all .3s;
             transform: translateX(32px);
             opacity: 0;
-            .xiyo-button-theme-link:hover {
+            .xiyo-button-theme-link {
               color: #ff8f78;
             }
           }
@@ -181,10 +178,6 @@ a {
     .demo-content-action-button {
       transform: translateX(0);
       opacity: 1;
-      .xiyo-button-theme-link {
-        color: #ff8f78;
-        background: transparent;
-      }
     }
     .xiyo-icon {
       transform: scale(.32) translateX(6px);
@@ -196,9 +189,7 @@ a {
 }
 @media (max-width: 500px) {
   .site {
-    &.visible {
-      overflow: hidden;
-    }
+    overflow: auto;
     &-header {
       position: relative;
       text-align: center;
@@ -251,16 +242,6 @@ a {
         }
       }
       .demo-content-action {
-        background: #fff;
-        &:hover {
-          background: #fff;
-          .xiyo-button-theme-link {
-            background: #fff;
-          }
-        }
-        .xiyo-button-theme-link {
-          background: #fff;
-        }
         &-button {
           transform: translateX(0);
           opacity: 1;

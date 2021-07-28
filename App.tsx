@@ -16,6 +16,9 @@ import Icon from './lib/icon/Icon';
 import './index.scss';
 import 'github-markdown-css';
 
+const logo = require('./logo.png').default;
+const xiyo = require('./xiyo.png').default;
+
 const App: React.FC = () => {
   const [asideVisible, setAsideVisible] = useState(false);
   return (
@@ -24,8 +27,8 @@ const App: React.FC = () => {
         <Header className="site-header">
           <Icon className={`menu ${asideVisible ? 'visible' : ''}`.trim()} name="menu"
                 onClick={() => setAsideVisible(v => !v)}/>
-          <img className="logo" src="./logo.png" alt=""/>
-          <img className="xiyo" src="./xiyo.png" alt=""/>
+          <img className="logo" src={logo} alt=""/>
+          <img className="xiyo" src={xiyo} alt=""/>
         </Header>
         <Layout>
           <Aside className={`site-aside ${asideVisible ? 'visible' : ''}`.trim()}>

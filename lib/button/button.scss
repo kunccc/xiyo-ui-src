@@ -41,7 +41,8 @@
       }
     }
     &-link {
-      border-color: transparent;
+      border-color: transparent !important;
+      background: transparent !important;
       box-shadow: none;
       color: #ff8f78;
       &:hover, &:focus {
