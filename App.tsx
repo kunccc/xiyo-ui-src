@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {HashRouter as Router, Route, NavLink, Redirect, Switch} from 'react-router-dom';
 import IconDemo from './lib/icon/icon.demo';
 import DialogDemo from './lib/dialog/dialog.demo';
@@ -23,6 +23,13 @@ const xiyo = require('./xiyo.png').default;
 
 const App: React.FC = () => {
   const [asideVisible, setAsideVisible] = useState(false);
+  useEffect(() => {
+    if (document.documentElement.clientWidth > 500) return;
+    const links = document.querySelectorAll('.site-aside a');
+    const mask = document.querySelector<HTMLDivElement>('.site-mask');
+    links.forEach((link: HTMLAnchorElement) => link.onclick = () => setAsideVisible(false));
+    mask!.onclick = () => setAsideVisible(false);
+  }, []);
   return (
     <Router>
       <Layout className={`site ${asideVisible ? 'visible' : ''}`.trim()}>
@@ -37,36 +44,36 @@ const App: React.FC = () => {
             <p className="site-aside-title">文档</p>
             <ul>
               <li>
-                <NavLink to="/intro" onClick={() => setAsideVisible(false)}>介绍</NavLink>
+                <NavLink to="/intro">介绍</NavLink>
               </li>
               <li>
-                <NavLink to="/install" onClick={() => setAsideVisible(false)}>安装</NavLink>
+                <NavLink to="/install">安装</NavLink>
               </li>
               <li>
-                <NavLink to="/start" onClick={() => setAsideVisible(false)}>开始使用</NavLink>
+                <NavLink to="/start">开始使用</NavLink>
               </li>
             </ul>
             <p className="site-aside-title">组件列表</p>
             <ul>
               <li>
-                <NavLink to="/icon" onClick={() => setAsideVisible(false)}>Icon 图标</NavLink>
+                <NavLink to="/icon">Icon 图标</NavLink>
               </li>
               <li>
-                <NavLink to="/button" onClick={() => setAsideVisible(false)}>Button 按钮</NavLink>
+                <NavLink to="/button">Button 按钮</NavLink>
               </li>
               <li>
-                <NavLink to="/layout" onClick={() => setAsideVisible(false)}>Layout 布局</NavLink>
+                <NavLink to="/layout">Layout 布局</NavLink>
               </li>
               <li>
-                <NavLink to="/dialog" onClick={() => setAsideVisible(false)}>Dialog 对话框</NavLink>
+                <NavLink to="/dialog">Dialog 对话框</NavLink>
               </li>
               <li>
-                <NavLink to="/backTop" onClick={() => setAsideVisible(false)}>BackTop 返回顶部</NavLink>
+                <NavLink to="/backTop">BackTop 返回顶部</NavLink>
               </li>
             </ul>
           </Aside>
           <Main className={`site-main ${asideVisible ? 'visible' : ''}`.trim()}>
-            <div className={`mask ${asideVisible ? 'visible' : ''}`.trim()} onClick={() => setAsideVisible(false)}/>
+            <div className={`site-mask ${asideVisible ? 'visible' : ''}`.trim()}/>
             <Switch>
               <Route path="/intro" component={Intro}/>
               <Route path="/install" component={Install}/>
