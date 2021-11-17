@@ -5,6 +5,7 @@ import IconDemo from './lib/icon/icon.demo';
 import DialogDemo from './lib/dialog/dialog.demo';
 import ButtonDemo from './lib/button/button.demo';
 import LayoutDemo from './lib/layout/layout.demo';
+import BackTopDemo from './lib/backTop/backTop.demo';
 import Layout from './lib/layout/Layout';
 import Header from './lib/layout/components/Header';
 import Aside from './lib/layout/components/Aside';
@@ -13,6 +14,7 @@ import Intro from './lib/doc/Intro';
 import Install from './lib/doc/Install';
 import Start from './lib/doc/Start';
 import Icon from './lib/icon/Icon';
+import BackTop from './lib/backTop/BackTop';
 import './index.scss';
 import 'github-markdown-css';
 
@@ -58,6 +60,9 @@ const App: React.FC = () => {
               <li>
                 <NavLink to="/dialog" onClick={() => setAsideVisible(false)}>Dialog 对话框</NavLink>
               </li>
+              <li>
+                <NavLink to="/backTop" onClick={() => setAsideVisible(false)}>BackTop 返回顶部</NavLink>
+              </li>
             </ul>
           </Aside>
           <Main className={`site-main ${asideVisible ? 'visible' : ''}`.trim()}>
@@ -70,10 +75,12 @@ const App: React.FC = () => {
               <Route path="/button" component={ButtonDemo}/>
               <Route path="/layout" component={LayoutDemo}/>
               <Route path="/dialog" component={DialogDemo}/>
+              <Route path="/backTop" component={BackTopDemo}/>
               <Redirect exact from="" to="/intro"/>
             </Switch>
           </Main>
         </Layout>
+        <BackTop/>
       </Layout>
     </Router>
   );

@@ -25,7 +25,7 @@ const Demo: React.FC<Props> = props => {
             <Button theme="link">{visible ? '隐藏代码' : '查看代码'}</Button>
           </div>
         </div>
-        <div className={`demo-content-code ${(visible ? 'codeVisible' : '').trim()}`}>
+        <div className={`demo-content-code ${(visible ? 'codeVisible' : '')}`.trim()}>
           <Highlight {...defaultProps} theme={nightOwlLight} code={props.code} language="tsx">
             {({className, style, tokens, getLineProps, getTokenProps}) => (
               <pre className={className} style={style}>
