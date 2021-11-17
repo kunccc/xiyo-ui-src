@@ -5,8 +5,50 @@ import DialogExample2 from './examples/dialog.example2';
 import DialogExample3 from './examples/dialog.example3';
 import DialogExample4 from './examples/dialog.example4';
 import DialogExample5 from './examples/dialog.example5';
+import Attributes from '../../Attributes';
 
 const DialogDemo: React.FC = () => {
+  const attributes = [
+    {
+      parameter: 'title',
+      description: '对话框的标题',
+      type: 'string'
+    },
+    {
+      parameter: 'type',
+      description: '对话框的类型',
+      type: 'string',
+      options: 'confirm / alert / modal',
+      default: 'alert'
+    },
+    {
+      parameter: 'visible',
+      description: '控制对话框是否弹出的变量',
+      type: 'boolean'
+    },
+    {
+      parameter: 'onClose',
+      description: '将 visible 变量更改为 false 的函数',
+      type: 'function'
+    },
+    {
+      parameter: 'closeOnMask',
+      description: '控制点击遮罩时是否关闭 dialog',
+      type: 'boolean',
+      options: 'true / false',
+      default: 'false'
+    },
+    {
+      parameter: 'onConfirm',
+      description: '点击确定后执行的回调',
+      type: 'function'
+    },
+    {
+      parameter: 'onCancel',
+      description: '点击取消后执行的回调',
+      type: 'function'
+    }
+  ];
   return (
     <>
       <h2>Dialog 对话框</h2>
@@ -17,6 +59,7 @@ const DialogDemo: React.FC = () => {
       <Demo code={require('!!raw-loader!./examples/dialog.example4').default}
             title="控制遮罩是否触发返回"><DialogExample4/></Demo>
       <Demo code={require('!!raw-loader!./examples/dialog.example5').default} title="便捷 API"><DialogExample5/></Demo>
+      <Attributes attributes={attributes}/>
     </>
   );
 };

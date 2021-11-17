@@ -1,27 +1,31 @@
 {
   "name": "xiyo-ui",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/lib/index",
+  "description": "xiyo-ui-library",
+  "main": "bundle.js",
   "types": "dist/lib/index",
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --config=jest.config.js --runInBand",
     "doc": "cross-env NODE_ENV=production webpack --config webpack.config.doc.js",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kunccc/xiyoUi-src.git"
+    "url": "git+https://github.com/kunccc/xiyo-ui-react.git"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react library"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kunccc/xiyoUi-src/issues"
+    "url": "https://github.com/kunccc/xiyo-ui-react/issues"
   },
   "homepage": "https://kunccc.github.io/xiyo-ui-react",
   "devDependencies": {
+    "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
     "@types/jest": "^24.0.9",
@@ -43,6 +47,11 @@
     "prism-react-renderer": "^1.2.1",
     "raw-loader": "^4.0.2",
     "react-test-renderer": "^16.8.4",
+    "rollup": "^2.55.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-typescript2": "^0.30.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "svg-sprite-loader": "^4.1.3",
