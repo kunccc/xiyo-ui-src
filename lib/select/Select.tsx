@@ -16,7 +16,6 @@ interface Props {
 const Select: React.FC<Props> = props => {
   const [label, setLabel] = useState('请选择');
   const [visible, setVisible] = useState(false);
-  const [focus, setFocus] = useState(false);
   const [clearVisible, setClearVisible] = useState(false);
   useEffect(() => {
     if (props.defaultValue === undefined) return;
@@ -48,14 +47,10 @@ const Select: React.FC<Props> = props => {
       (((e.target as HTMLElement).parentNode as HTMLElement).parentNode as HTMLElement).classList.contains('select-focus')
     ) return;
     setVisible(false);
-    setFocus(false);
   };
   const onSelectClick = () => {
     if (props.disabled) return;
-    setTimeout(() => {
-      setVisible(v => !v);
-      setFocus(v => !v);
-    });
+    setTimeout(() => setVisible(v => !v));
   };
   const onLiClick = (e: React.MouseEvent, option: { value: boolean | string | number | object, label: string, disabled?: boolean }) => {
     const {value, label, disabled} = option;
@@ -74,7 +69,7 @@ const Select: React.FC<Props> = props => {
   };
   return (
     <div
-      className={`xiyo-select ${focus ? 'select-focus' : ''} ${props.size ? props.size : ''} ${props.disabled ? 'disabled' : ''}`.trim()}
+      className={`xiyo-select ${visible ? 'select-focus' : ''} ${props.size ? props.size : ''} ${props.disabled ? 'disabled' : ''}`.trim()}
       onClick={onSelectClick}>
       <span>{label}</span>
       {clearVisible ? <Icon name="close" onClick={clear}/> :
