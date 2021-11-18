@@ -46,6 +46,12 @@ const SelectDemo: React.FC = () => {
       options: 'true / false',
       default: 'false'
     },
+    {
+      parameter: 'noDataText',
+      description: '没有选中值时的显示文本',
+      type: 'string',
+      default: '请选择'
+    },
   ];
   return (
     <>

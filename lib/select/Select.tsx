@@ -10,6 +10,7 @@ interface Props {
   disabled?: boolean;
   defaultValue?: string;
   clearable?: boolean;
+  noDataText?: string;
 }
 
 const Select: React.FC<Props> = props => {
@@ -31,6 +32,14 @@ const Select: React.FC<Props> = props => {
     props.options.forEach(option => {
       if (label === option.label) setClearVisible(true);
     });
+  }, [label]);
+  useEffect(() => {
+    if (!props.noDataText) return;
+    let hasData;
+    props.options.forEach(option => {
+      if (label === option.label) hasData = true;
+    });
+    if (!hasData) setLabel(props.noDataText);
   }, [label]);
   window.onclick = (e: MouseEvent) => {
     if (
@@ -59,7 +68,7 @@ const Select: React.FC<Props> = props => {
   };
   const clear = (e: React.MouseEvent) => {
     setClearVisible(false);
-    setLabel('请选择');
+    setLabel(props.noDataText ? props.noDataText : '请选择');
     props.onChange?.(undefined);
     e.stopPropagation();
   };
