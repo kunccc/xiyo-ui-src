@@ -6,6 +6,7 @@ import DialogDemo from './lib/dialog/dialog.demo';
 import ButtonDemo from './lib/button/button.demo';
 import LayoutDemo from './lib/layout/layout.demo';
 import BackTopDemo from './lib/backTop/backTop.demo';
+import SelectDemo from './lib/select/select.demo';
 import Layout from './lib/layout/Layout';
 import Header from './lib/layout/components/Header';
 import Aside from './lib/layout/components/Aside';
@@ -65,6 +66,9 @@ const App: React.FC = () => {
                 <NavLink to="/layout">Layout 布局</NavLink>
               </li>
               <li>
+                <NavLink to="/select">Select 选择器</NavLink>
+              </li>
+              <li>
                 <NavLink to="/dialog">Dialog 对话框</NavLink>
               </li>
               <li>
@@ -81,6 +85,7 @@ const App: React.FC = () => {
               <Route path="/icon" component={IconDemo}/>
               <Route path="/button" component={ButtonDemo}/>
               <Route path="/layout" component={LayoutDemo}/>
+              <Route path="/select" component={SelectDemo}/>
               <Route path="/dialog" component={DialogDemo}/>
               <Route path="/backTop" component={BackTopDemo}/>
               <Redirect exact from="" to="/intro"/>
