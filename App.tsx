@@ -31,6 +31,10 @@ const App: React.FC = () => {
     links.forEach((link: HTMLAnchorElement) => link.onclick = () => setAsideVisible(false));
     mask!.onclick = () => setAsideVisible(false);
   }, []);
+  useEffect(() => {
+    document.querySelector('.site-aside')!.addEventListener('wheel', e => e.preventDefault());
+    document.querySelector('.site-header')!.addEventListener('wheel', e => e.preventDefault());
+  }, []);
   return (
     <Router>
       <Layout className={`site ${asideVisible ? 'visible' : ''}`.trim()}>
