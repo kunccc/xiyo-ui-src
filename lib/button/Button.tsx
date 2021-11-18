@@ -4,7 +4,7 @@ import './button.scss';
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   level?: string;
   theme?: string;
-  size?: string;
+  size?: 'small' | 'normal' | 'large';
   loading?: boolean;
   disabled?: boolean;
 }

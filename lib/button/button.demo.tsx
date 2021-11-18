@@ -28,7 +28,7 @@ const ButtonDemo: React.FC = () => {
       parameter: 'size',
       description: '按钮的尺寸',
       type: 'string',
-      options: 'small / normal / big',
+      options: 'small / normal / large',
       default: 'normal'
     },
     {
