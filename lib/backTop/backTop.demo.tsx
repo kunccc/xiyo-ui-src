@@ -30,7 +30,7 @@ const backTopDemo: React.FC = () => {
       <p className="detail">用于返回页面顶部</p>
       <Demo code={require('!!raw-loader!./examples/backTop.example').default} title="基本用法"><BackTopExample/></Demo>
       <Attributes attributes={attributes}/>
-      <p style={{height: '500px'}}/>
+      {document.documentElement.clientWidth > 500 ? <p style={{height: '500px'}}/> : null}
     </>
   );
 };

@@ -25,10 +25,7 @@ a {
     padding: 16px 16px 12px;
     border-bottom: 1px solid #ddd;
     background: #fff;
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 18vw;
+    z-index: 10;
     .menu {
       display: none;
       transform: scale(.7);
@@ -123,6 +120,7 @@ a {
     .select-example {
       .xiyo-select {
         margin-right: 20px;
+        margin-bottom: 16px;
         &:last-child {
           margin: 0
         }
@@ -211,6 +209,9 @@ a {
   .site {
     margin: 0 18vw;
     &-header {
+      position: fixed;
+      top: 0;
+      left: 18vw;
       width: 64vw;
     }
   }
@@ -231,9 +232,15 @@ a {
 @media (max-width: 500px) {
   .site {
     overflow: auto;
+    .markdown-body {
+      width: calc(100vw - 80px);
+    }
     &-header {
-      position: relative;
+      position: fixed;
       text-align: center;
+      top: 0;
+      left: 0;
+      width: 100vw;
       .menu {
         display: block;
         position: absolute;
@@ -255,25 +262,27 @@ a {
     }
     &-aside {
       transition: all .4s ease;
-      transform: translateX(-200px);
+      transform: translateX(-210px);
       &.visible {
         transform: translateX(0);
       }
     }
     &-main {
-      min-width: 100%;
+      width: 100vw;
       transition: all .4s ease;
-      transform: translateX(-200px);
+      transform: translateX(-210px);
       position: relative;
+      padding: 36px 40px 0 40px;
+      margin-left: 210px;
       &.visible {
         transform: translateX(0);
       }
       .site-mask {
         position: absolute;
         width: 100%;
-        height: 100%;
+        height: calc(100% + 36px);
         background: rgba(0, 0, 0, 0.25);
-        transform: translate(-32px, -32px);
+        transform: translate(-40px, -36px);
         z-index: -1;
         opacity: 0;
         transition: all .4s ease;
@@ -293,6 +302,9 @@ a {
             transform: scale(.32) translateX(32px) rotate(-180deg);
           }
         }
+      }
+      .attributes table {
+        font-size: 12px;
       }
     }
   }
