@@ -15,10 +15,12 @@ const BackTop: React.FC<Props> = props => {
   useEffect(() => {
     if (props.right !== undefined) backTop.current!.style.right = props.right + 'px';
     if (props.bottom !== undefined) backTop.current!.style.bottom = props.bottom + 'px';
-    window.onscroll = () => {
+    let listener = () => {
       if (document.documentElement.scrollTop > (props.visibilityHeight !== undefined ? props.visibilityHeight : 200)) setTimeout(() => setVisible(true), 250);
       else setTimeout(() => setVisible(false), 250);
     };
+    window.addEventListener('scroll', listener);
+    return () => window.removeEventListener('scroll', listener);
   }, []);
   return (
     <div className={`xiyo-back-top ${visible ? 'visible' : ''}`.trim()} ref={backTop}

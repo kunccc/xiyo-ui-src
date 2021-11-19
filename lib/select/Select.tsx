@@ -40,14 +40,16 @@ const Select: React.FC<Props> = props => {
     });
     if (!hasData) setLabel(props.noDataText);
   }, [label]);
-  window.onclick = (e: MouseEvent) => {
-    if (
-      (e.target as HTMLElement).classList.contains('select-focus') ||
-      ((e.target as HTMLElement).parentNode as HTMLElement).classList.contains('select-focus') ||
-      (((e.target as HTMLElement).parentNode as HTMLElement).parentNode as HTMLElement).classList.contains('select-focus')
-    ) return;
-    setVisible(false);
-  };
+  useEffect(() => {
+    window.onclick = (e: MouseEvent) => {
+      if (
+        (e.target as HTMLElement).classList?.contains('select-focus') ||
+        ((e.target as HTMLElement).parentNode as HTMLElement).classList?.contains('select-focus') ||
+        (((e.target as HTMLElement).parentNode as HTMLElement).parentNode as HTMLElement).classList?.contains('select-focus')
+      ) return;
+      setVisible(false);
+    };
+  }, []);
   const onSelectClick = () => {
     if (props.disabled) return;
     setTimeout(() => setVisible(v => !v));

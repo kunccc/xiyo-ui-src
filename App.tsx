@@ -25,10 +25,12 @@ const xiyo = require('./xiyo.png').default;
 const App: React.FC = () => {
   const [asideVisible, setAsideVisible] = useState(false);
   useEffect(() => {
-    if (document.documentElement.clientWidth > 500) return;
     const links = document.querySelectorAll('.site-aside a');
     const mask = document.querySelector<HTMLDivElement>('.site-mask');
-    links.forEach((link: HTMLAnchorElement) => link.onclick = () => setAsideVisible(false));
+    links.forEach((link: HTMLAnchorElement) => link.onclick = () => {
+      window.scrollTo({top: 0});
+      setAsideVisible(false);
+    });
     mask!.onclick = () => setAsideVisible(false);
   }, []);
   useEffect(() => {
