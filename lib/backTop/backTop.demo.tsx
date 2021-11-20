@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Demo from '../../Demo';
 import BackTopExample from './examples/backTop.example';
 import Attributes from '../../Attributes';
 
 const backTopDemo: React.FC = () => {
+  const [xxx, setxxx] = useState('');
   const attributes = [
     {
       parameter: 'visibilityHeight',
@@ -24,11 +25,27 @@ const backTopDemo: React.FC = () => {
       default: '50'
     }
   ];
+  useEffect(() => {
+    setxxx(`import * as React from 'react';
+import BackTop from '../BackTop';
+
+const backTopExample: React.FC = () => {
+  return (
+    <div>
+      <p>往下滚动即可在右下方看到返回顶部按钮</p>
+      <BackTop/>
+    </div>
+  );
+};
+
+export default backTopExample;
+    `);
+  });
   return (
     <>
       <h2>BackTop 返回顶部</h2>
       <p className="detail">用于返回页面顶部</p>
-      <Demo code={require('!!raw-loader!./examples/backTop.example').default} title="基本用法"><BackTopExample/></Demo>
+      <Demo code={xxx} title="基本用法"><BackTopExample/></Demo>
       <Attributes attributes={attributes}/>
       {document.documentElement.clientWidth > 500 ? <p style={{height: '500px'}}/> : null}
     </>

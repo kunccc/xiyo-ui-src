@@ -1,27 +1,35 @@
 .xiyo-back-top {
   position: fixed;
-  right: 50px;
+  left: 50px;
   bottom: 50px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
   transition: all 250ms ease;
-  background: rgba(#fff, .7);
+  background: rgba(#fff, .8);
   opacity: 0;
   z-index: -1;
-  &:hover {
-    cursor: pointer;
-    background: rgba(#ff8f78, .15);
-  }
   &.visible {
     opacity: 1;
-    z-index: 1;
+    z-index: 10;
   }
   .xiyo-icon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(180deg) scale(.4);
+  }
+}
+@media (min-width: 500px) {
+  .xiyo-back-top:hover {
+    cursor: pointer;
+    background: rgba(#ff8f78, .15);
+  }
+}
+@media (max-width: 500px) {
+  .xiyo-back-top:active {
+    cursor: pointer;
+    background: rgba(#ff8f78, .15);
   }
 }
