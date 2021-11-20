@@ -94,4 +94,7 @@
     cursor: pointer;
     border: 1px solid #ff8f78;
   }
+  .xiyo-select.disabled {
+    cursor: not-allowed;
+  }
 }
