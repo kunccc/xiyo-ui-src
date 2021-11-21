@@ -28,7 +28,7 @@ const App: React.FC = () => {
     const links = document.querySelectorAll('.site-aside a');
     const mask = document.querySelector<HTMLDivElement>('.site-mask');
     links.forEach((link: HTMLAnchorElement) => link.onclick = () => {
-      window.scrollTo({top: 0});
+      document.querySelector('.site')!.scrollTo({top: 0});
       setAsideVisible(false);
     });
     mask!.onclick = () => setAsideVisible(false);
@@ -87,7 +87,6 @@ const App: React.FC = () => {
             </ul>
           </Aside>
           <Main className={`site-main ${asideVisible ? 'visible' : ''}`.trim()}>
-            <div className={`site-mask ${asideVisible ? 'visible' : ''}`.trim()}/>
             <Switch>
               <Route path="/intro" component={Intro}/>
               <Route path="/install" component={Install}/>
@@ -102,7 +101,8 @@ const App: React.FC = () => {
             </Switch>
           </Main>
         </Layout>
-        <BackTop/>
+        <div className={`site-mask ${asideVisible ? 'visible' : ''}`.trim()}/>
+        <BackTop className={asideVisible ? 'inVisible' : ''}/>
       </Layout>
     </Router>
   );

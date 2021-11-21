@@ -274,22 +274,8 @@ a {
       position: relative;
       padding: 36px 40px;
       &.visible {
+        filter: grayscale(.2);
         transform: translateX(210px);
-      }
-      .site-mask {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.25);
-        z-index: -1;
-        opacity: 0;
-        transition: all .4s ease;
-        &.visible {
-          z-index: 100;
-          opacity: 1;
-        }
       }
       .demo-content-action {
         &-button {
@@ -305,6 +291,29 @@ a {
       }
       .attributes table {
         font-size: 12px;
+      }
+    }
+    .site-mask {
+      position: fixed;
+      top: 57px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: -1;
+      opacity: 0;
+      transform: translateX(0);
+      transition: all .4s ease;
+      &.visible {
+        transform: translateX(210px);
+        z-index: 100;
+        opacity: 1;
+      }
+    }
+    .xiyo-back-top {
+      transition: all .4s ease;
+      &.inVisible {
+        transform: translateX(210px);
       }
     }
   }

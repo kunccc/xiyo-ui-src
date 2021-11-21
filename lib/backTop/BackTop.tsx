@@ -7,6 +7,7 @@ interface Props {
   visibilityHeight?: number;
   right?: number;
   bottom?: number;
+  className?: string;
 }
 
 const BackTop: React.FC<Props> = props => {
@@ -23,7 +24,8 @@ const BackTop: React.FC<Props> = props => {
     return () => window.removeEventListener('scroll', listener);
   });
   return (
-    <div className={`xiyo-back-top ${visible ? 'visible' : ''}`.trim()} ref={backTop}
+    <div className={`xiyo-back-top ${visible ? 'visible' : ''} ${props.className ? props.className : ''}`.trim()}
+         ref={backTop}
          onClick={() => document.querySelector('.site')!.scrollTo({top: 0, behavior: 'smooth'})}>
       <Icon name="arrow"/>
     </div>
