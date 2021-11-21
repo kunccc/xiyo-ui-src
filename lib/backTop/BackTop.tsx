@@ -16,15 +16,15 @@ const BackTop: React.FC<Props> = props => {
     if (props.right !== undefined) backTop.current!.style.right = props.right + 'px';
     if (props.bottom !== undefined) backTop.current!.style.bottom = props.bottom + 'px';
     let listener = () => {
-      if (document.documentElement.scrollTop > (props.visibilityHeight !== undefined ? props.visibilityHeight : 200)) setTimeout(() => setVisible(true), 250);
+      if (document.querySelector('.site')!.scrollTop > (props.visibilityHeight !== undefined ? props.visibilityHeight : 200)) setTimeout(() => setVisible(true), 250);
       else setTimeout(() => setVisible(false), 250);
     };
-    window.addEventListener('scroll', listener);
+    window.addEventListener('scroll', listener, true);
     return () => window.removeEventListener('scroll', listener);
   });
   return (
     <div className={`xiyo-back-top ${visible ? 'visible' : ''}`.trim()} ref={backTop}
-         onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+         onClick={() => document.querySelector('.site')!.scrollTo({top: 0, behavior: 'smooth'})}>
       <Icon name="arrow"/>
     </div>
   );

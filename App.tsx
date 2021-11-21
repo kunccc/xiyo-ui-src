@@ -37,6 +37,8 @@ const App: React.FC = () => {
     document.querySelector('.site-aside')!.addEventListener('wheel', e => e.preventDefault());
     document.querySelector('.site-header')!.addEventListener('wheel', e => e.preventDefault());
     document.querySelector('.site-mask')!.addEventListener('wheel', e => e.preventDefault());
+    document.querySelector('.site-aside')!.addEventListener('touchmove', e => e.preventDefault());
+    document.querySelector('.site-header')!.addEventListener('touchmove', e => e.preventDefault());
     document.querySelector('.site-mask')!.addEventListener('touchmove', e => e.preventDefault());
   }, []);
   return (
