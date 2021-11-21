@@ -21,6 +21,10 @@ a {
 .site {
   height: 100vh;
   padding-top: 56px;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
   &-header {
     padding: 16px 16px 12px;
     border-bottom: 1px solid #ddd;
@@ -207,12 +211,17 @@ a {
 }
 @media (min-width: 500px) {
   .site {
-    margin: 0 18vw;
     &-header {
       position: fixed;
       top: 0;
       left: 18vw;
       width: 64vw;
+    }
+    &-aside {
+      margin: 0 18vw;
+    }
+    &-main {
+      margin: 0 18vw;
     }
   }
   .demo-content-action:hover {
