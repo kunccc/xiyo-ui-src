@@ -16,6 +16,7 @@ import Install from './lib/doc/Install';
 import Start from './lib/doc/Start';
 import Icon from './lib/icon/Icon';
 import BackTop from './lib/backTop/BackTop';
+import DatepickerDemo from './lib/datepicker/datepicker.demo';
 import './index.scss';
 import 'github-markdown-css';
 
@@ -84,6 +85,9 @@ const App: React.FC = () => {
               <li>
                 <NavLink to="/backTop">BackTop 返回顶部</NavLink>
               </li>
+              <li>
+                <NavLink to="/datepicker">Datepicker 日期选择器</NavLink>
+              </li>
             </ul>
           </Aside>
           <Main className={`site-main ${asideVisible ? 'visible' : ''}`.trim()}>
@@ -97,6 +101,7 @@ const App: React.FC = () => {
               <Route path="/select" component={SelectDemo}/>
               <Route path="/dialog" component={DialogDemo}/>
               <Route path="/backTop" component={BackTopDemo}/>
+              <Route path="/datepicker" component={DatepickerDemo}/>
               <Redirect exact from="" to="/intro"/>
             </Switch>
           </Main>
