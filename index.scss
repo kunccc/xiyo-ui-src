@@ -44,9 +44,9 @@ a {
     }
   }
   &-aside {
-    min-width: 210px;
+    min-width: 223px;
     height: 100%;
-    padding: 16px 16px 16px 28px;
+    padding: 16px 28px;
     box-shadow: 1px 0 1px rgba(0, 0, 0, .1);
     position: fixed;
     &-title {
@@ -66,7 +66,7 @@ a {
     }
   }
   &-main {
-    padding: 36px 40px 80px 250px;
+    padding: 36px 40px 80px 262px;
     width: 0;
     .detail {
       font-size: 14px;
@@ -127,6 +127,28 @@ a {
         margin-bottom: 16px;
         &:last-child {
           margin: 0
+        }
+      }
+    }
+    .datepicker-example {
+      p {
+        margin: 16px 0;
+        &:first-child {
+          margin-top: 0;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+        > span {
+          display: inline-block;
+          font-size: 14px;
+          margin: 10px 0;
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+        .xiyo-datepicker {
+          margin: 0 8px;
         }
       }
     }
@@ -271,7 +293,7 @@ a {
     }
     &-aside {
       transition: all .4s ease;
-      transform: translateX(-210px);
+      transform: translateX(-223px);
       &.visible {
         transform: translateX(0);
       }
@@ -284,7 +306,7 @@ a {
       padding: 36px 40px;
       &.visible {
         filter: grayscale(.2);
-        transform: translateX(210px);
+        transform: translateX(223px);
       }
       .demo-content-action {
         &-button {
@@ -314,7 +336,7 @@ a {
       transform: translateX(0);
       transition: all .4s ease;
       &.visible {
-        transform: translateX(210px);
+        transform: translateX(223px);
         z-index: 100;
         opacity: 1;
       }
@@ -322,7 +344,7 @@ a {
     .xiyo-back-top {
       transition: all .4s ease;
       &.inVisible {
-        transform: translateX(210px);
+        transform: translateX(223px);
       }
     }
   }
