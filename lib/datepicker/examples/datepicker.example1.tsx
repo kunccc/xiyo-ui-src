@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useState} from 'react';
-import Datepicker from '../datepicker';
+import Datepicker from '../Datepicker';
 
 const DatepickerExample1: React.FC = () => {
   const [, setSelected] = useState({});

@@ -7,6 +7,7 @@ import ButtonDemo from './lib/button/button.demo';
 import LayoutDemo from './lib/layout/layout.demo';
 import BackTopDemo from './lib/backTop/backTop.demo';
 import SelectDemo from './lib/select/select.demo';
+import DatepickerDemo from './lib/datepicker/datepicker.demo';
 import Layout from './lib/layout/Layout';
 import Header from './lib/layout/components/Header';
 import Aside from './lib/layout/components/Aside';
@@ -16,7 +17,6 @@ import Install from './lib/doc/Install';
 import Start from './lib/doc/Start';
 import Icon from './lib/icon/Icon';
 import BackTop from './lib/backTop/BackTop';
-import DatepickerDemo from './lib/datepicker/datepicker.demo';
 import './index.scss';
 import 'github-markdown-css';
 

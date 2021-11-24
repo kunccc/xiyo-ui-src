@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Datepicker from '../datepicker';
+import Datepicker from '../Datepicker';
 
 const DatepickerExample5: React.FC = () => {
   return (
