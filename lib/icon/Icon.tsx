@@ -1,5 +1,5 @@
 import React from 'react';
-import '../helper/importIcons';
+import '../../helper/importIcons';
 import './icon.scss';
 
 type Props = {
