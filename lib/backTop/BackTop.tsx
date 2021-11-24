@@ -4,6 +4,7 @@ import Icon from '../icon/Icon';
 import './backTop.scss';
 
 interface Props {
+  listeningElement?: object | null;
   visibilityHeight?: number;
   right?: number;
   bottom?: number;
@@ -17,7 +18,7 @@ const BackTop: React.FC<Props> = props => {
     if (props.right !== undefined) backTop.current!.style.right = props.right + 'px';
     if (props.bottom !== undefined) backTop.current!.style.bottom = props.bottom + 'px';
     let listener = () => {
-      if (document.querySelector('.site')!.scrollTop > (props.visibilityHeight !== undefined ? props.visibilityHeight : 200)) setTimeout(() => setVisible(true), 250);
+      if ((props.listeningElement ? (props.listeningElement as HTMLElement) : document.documentElement).scrollTop > (props.visibilityHeight !== undefined ? props.visibilityHeight : 200)) setTimeout(() => setVisible(true), 250);
       else setTimeout(() => setVisible(false), 250);
     };
     window.addEventListener('scroll', listener, true);
@@ -26,7 +27,10 @@ const BackTop: React.FC<Props> = props => {
   return (
     <div className={`xiyo-back-top ${visible ? 'visible' : ''} ${props.className ? props.className : ''}`.trim()}
          ref={backTop}
-         onClick={() => document.querySelector('.site')!.scrollTo({top: 0, behavior: 'smooth'})}>
+         onClick={() => ((props.listeningElement ? (props.listeningElement as HTMLElement) : document.documentElement) as HTMLElement).scrollTo({
+           top: 0,
+           behavior: 'smooth'
+         })}>
       <Icon name="arrow"/>
     </div>
   );

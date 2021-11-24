@@ -1,10 +1,12 @@
 export {default as Icon} from './icon/Icon';
 export {default as Button} from './button/Button';
 export {default as Layout} from './layout/Layout';
+export {default as Aside} from './layout/components/Aside';
+export {default as Footer} from './layout/components/Footer';
+export {default as Header} from './layout/components/Header';
+export {default as Main} from './layout/components/Main';
 export {default as Dialog} from './dialog/Dialog';
-export {default as Alert} from './dialog/components/Alert';
-export {default as Confirm} from './dialog/components/Confirm';
-export {default as Modal} from './dialog/components/Modal';
+export {alert, confirm, modal} from './dialog/Dialog';
 export {default as Select} from './select/Select';
 export {default as BackTop} from './backTop/BackTop';
 export {default as Datepicker} from './datepicker/Datepicker';

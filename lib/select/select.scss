@@ -11,6 +11,23 @@
   color: #666;
   font-size: 14px;
   transition: all .3s ease;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  ul, ol {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   &.disabled {
     border: 1px solid #ddd;
     cursor: not-allowed;
@@ -28,8 +45,11 @@
     .xiyo-select-dropdown {
       width: 128px;
       top: 32px;
-      li {
-        padding: 5px 11px;
+      ul {
+        list-style: none;
+        li {
+          padding: 5px 11px;
+        }
       }
     }
   }

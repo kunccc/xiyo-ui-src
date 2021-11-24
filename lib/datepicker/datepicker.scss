@@ -1,6 +1,23 @@
 .xiyo-datepicker {
   position: relative;
   display: inline-block;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  ul, ol {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   &-selector {
     &-wrapper {
       width: 220px;

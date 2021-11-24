@@ -1,6 +1,8 @@
 import React from 'react';
-import '../../helper/importIcons';
 import './icon.scss';
+
+const importAll = (requireContext: any) => requireContext.keys().forEach(requireContext);
+try {importAll((require as any).context('/icons', true, /\.svg$/));} catch (error) {console.log(error);}
 
 type Props = {
   name: string

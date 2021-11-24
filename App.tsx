@@ -25,6 +25,7 @@ const xiyo = require('./xiyo.png').default;
 
 const App: React.FC = () => {
   const [asideVisible, setAsideVisible] = useState(false);
+  const [listeningElement, setListeningElement] = useState<HTMLElement | null>(null);
   useEffect(() => {
     const links = document.querySelectorAll('.site-aside a');
     const mask = document.querySelector<HTMLDivElement>('.site-mask');
@@ -41,6 +42,9 @@ const App: React.FC = () => {
     document.querySelector('.site-aside')!.addEventListener('touchmove', e => e.preventDefault());
     document.querySelector('.site-header')!.addEventListener('touchmove', e => e.preventDefault());
     document.querySelector('.site-mask')!.addEventListener('touchmove', e => e.preventDefault());
+  }, []);
+  useEffect(() => {
+    setListeningElement(document.querySelector('.site') as HTMLElement);
   }, []);
   return (
     <Router>
@@ -107,7 +111,7 @@ const App: React.FC = () => {
           </Main>
         </Layout>
         <div className={`site-mask ${asideVisible ? 'visible' : ''}`.trim()}/>
-        <BackTop className={asideVisible ? 'inVisible' : ''}/>
+        <BackTop listeningElement={listeningElement} className={asideVisible ? 'inVisible' : ''}/>
       </Layout>
     </Router>
   );
