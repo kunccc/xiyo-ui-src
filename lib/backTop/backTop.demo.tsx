@@ -4,8 +4,14 @@ import BackTopExample from './examples/backTop.example';
 import Attributes from '../../Attributes';
 
 const backTopDemo: React.FC = () => {
-  const [xxx, setxxx] = useState('');
+  const [text, setText] = useState('');
   const attributes = [
+    {
+      parameter: 'listeningElement',
+      description: '监听滚动的元素',
+      type: 'object',
+      default: 'document.documentElement'
+    },
     {
       parameter: 'visibilityHeight',
       description: '滚动高度达到此参数值才出现返回按钮',
@@ -26,7 +32,7 @@ const backTopDemo: React.FC = () => {
     }
   ];
   useEffect(() => {
-    setxxx(`import * as React from 'react';
+    setText(`import * as React from 'react';
 import BackTop from '../BackTop';
 
 const backTopExample: React.FC = () => {
@@ -45,7 +51,7 @@ export default backTopExample;
     <>
       <h2>BackTop 返回顶部</h2>
       <p className="detail">用于返回页面顶部</p>
-      <Demo code={xxx} title="基本用法"><BackTopExample/></Demo>
+      <Demo code={text} title="基本用法"><BackTopExample/></Demo>
       <Attributes attributes={attributes}/>
       {document.documentElement.clientWidth > 500 ? <p style={{height: '500px'}}/> : null}
     </>
