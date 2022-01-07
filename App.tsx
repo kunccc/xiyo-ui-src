@@ -20,7 +20,6 @@ import BackTop from './lib/backTop/BackTop';
 import './index.scss';
 import 'github-markdown-css';
 
-const logo = require('./logo.png').default;
 const xiyo = require('./xiyo.png').default;
 
 const App: React.FC = () => {
@@ -52,7 +51,7 @@ const App: React.FC = () => {
         <Header className="site-header">
           <Icon className={`menu ${asideVisible ? 'visible' : ''}`.trim()} name="menu"
                 onClick={() => setAsideVisible(v => !v)}/>
-          <img className="logo" src={logo} alt=""/>
+          <Icon name="xiyo" className="logo"/>
           <img className="xiyo" src={xiyo} alt=""/>
         </Header>
         <Layout>
