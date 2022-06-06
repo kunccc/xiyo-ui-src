@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-yarn doc &&
+rm -rf doc &&
+  yarn doc &&
   cd doc &&
   git init &&
   git add . &&
